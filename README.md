@@ -1,6 +1,6 @@
 # FiscaParadise
 	
-PITCH:
+PITCH:\n
 Un taux d'imposition sur le revenue allant de 11 à 45%. 
 Ne méritez vous pas de conserver un maximum de votre argent durement gagné ?
 
