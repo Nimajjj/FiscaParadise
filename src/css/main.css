@@ -133,3 +133,7 @@ h1:hover {
 .social_icon {
 	height: 24px;
 }
+
+a:hover {
+	cursor: pointer;
+}
