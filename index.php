@@ -7,17 +7,18 @@
     	<meta charset="UTF-8">
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="./css/main.css">
-  <link rel="stylesheet" type="text/css" href="./css/article.css">
+	<link rel="stylesheet" type="text/css" href="src/css/main.css">
+  <link rel="stylesheet" type="text/css" href="src/css/article.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-	<title>FiscaParadise - Article</title>
+
+  <title>FiscaParadise - Article</title>
 </head>
 
 <body>
 
 	<div id="nav">
 		<ul id="left_nav">
-  		<li><img id="logo" src="../img/gold-ingots.png" alt="logo"></li>
+  		<li><img id="logo" src="img/gold-ingots.png" alt="logo"></li>
   		<li><h1 id="main_title">FiscaParadise</h1></li>
 		</ul>
 		<ul id="right_nav">
@@ -32,7 +33,7 @@
     <div id="article">
         <ul id="article_ul">
           <li><h2 id="article_title">Mais où pouvez vous bien cacher tout votre or ?</h2></li>
-          <li><img id="article_img" src="../img/article/gold.jpeg" alt="img" style="height:25em"></li>
+          <li><img id="article_img" src="img/article/gold.jpeg" alt="img" style="height:25em"></li>
           <li>
             <p id="article_p">
               Lorem <span class="important">ipsum dolor sit amet</span>, consectetur adipisicing elit,
@@ -105,13 +106,32 @@
         <div id="f_right">
           <ul>
             <li> <a target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FFiscaParadise.com%2F&amp;src=sdkpreparse', 'facebook','width=600,height=400')"> <img class="social_icon" src="../img/facebook.png" alt="facebook"> </a> </li>
-            <li> <a href="#"> <img class="social_icon" src="../img/twitter.png" alt="twitter"> </a> </li>
-            <li> <a href="#"> <img class="social_icon" src="../img/google-plus.png" alt="google +"> </a> </li>
+            <li> <a href="#"> <img class="social_icon" src="img/twitter.png" alt="twitter"> </a> </li>
+            <li> <a href="#"> <img class="social_icon" src="img/google-plus.png" alt="google +"> </a> </li>
           </ul>
           <p>S'enregistrer à la newletter:</p>
-          <form action="#">
-            <input type="email" name="email">
-            <input type="submit">
+          <form action="" method="post">
+            <input type="email" name="email"/>
+            <input type="submit" name="emailSubmit" id="emailSubmit"/>
+
+            <?php
+              function submitEmail($email)
+              {
+                include 'src/php/init.php';
+
+                $mail = (string) $email;
+
+                $request = "INSERT INTO `emails_table` (`email`) VALUES ('$mail')";
+                $result = mysqli_query($sqlConnection, $request);
+
+                if(!$result)  { echo "<br>Echec de l insertion"; }
+                mysqli_close($sqlConnection);
+              }
+              if(array_key_exists('emailSubmit',$_POST)){
+                 submitEmail($_POST['email']);
+              }
+            ?>
+
           </form>
         </div>
       </li>
