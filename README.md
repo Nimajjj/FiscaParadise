@@ -13,3 +13,9 @@ Quelle célébrité à placé sont pécule en Suisse ?
 Comment bien se cacher du trésors publique ?  
 
 La solution, le paradis ? C'est FiscaParadise® !
+  
+### Projet web
+Ynov Aix-en-Provence  
+B1 2021/2022  
+[Benjamin BORELLO](https://github.com/Nimajjj)  
+[Amaury DESBOURDES](https://github.com/amaury13)
