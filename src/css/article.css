@@ -21,3 +21,18 @@
   font-weight: bold;
   color: #fb8122;
 }
+
+#intro, #body, #conclusion {
+  margin-top: 1vh;
+}
+
+#article_footer {
+  display: flex;
+  margin-top:2vh;
+}
+
+#article_footer p {
+  margin-top:0;
+  font-size: 14px;
+  font-weight: bold;
+}
