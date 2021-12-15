@@ -1,0 +1,44 @@
+#articles {
+  width: 85%;
+}
+
+#articles li:not(#first_li) {
+  list-style: none;
+  display: flex;
+  height: 35vh;
+  margin-bottom: 5vh;
+  transition: 1s ease;
+  padding: 1em;
+  border-radius: 0.25em;
+}
+
+#articles li:hover {
+  background-color: #e1e2e2;
+	color: #14181c;
+	cursor: pointer;
+}
+
+#articles li div {
+  height: 100%;
+}
+
+#articles h2 {
+  font-size: 32px;
+}
+
+#articles h3 {
+  font-size: 24px;
+}
+
+.article_img {
+  height: 100%;
+  border: 1px solid #14181c;
+}
+
+.article_odd .article_img {
+  margin-right: 1vw;
+}
+
+.article_even .article_img {
+  margin-left: 1vw;
+}
