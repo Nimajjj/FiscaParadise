@@ -37,7 +37,6 @@
     <ul id="articles">
 
 			<?php
-
 				include 'src/php/init.php';
 
 				$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
@@ -46,14 +45,20 @@
 				while ( $article = mysqli_fetch_array($result) ) {
 					echo '<li class="article" onclick="location.href=`src/php/article.php?Article='.$article['ID'].'`">';
 						if ($article['ID'] % 2 != 0) {
-							echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
+							echo '<div>';
+								echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img img_left">';
+								echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
+							echo '</div>';
 						}
 						echo '<div class="article_content">';
 							echo '<h3 class="article_title">'.$article['Title'].'</h3>';
 							echo '<p class="article_intro">'.$article['Intro'].'</p>';
 						echo '</div>';
 						if ($article['ID'] % 2 == 0) {
-							echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
+							echo '<div>';
+								echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img img_right">';
+								echo '<p style="margin-left: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
+							echo '</div>';
 						}
 					echo '</li>';
 				}
