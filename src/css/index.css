@@ -20,6 +20,11 @@
 
 #articles li div {
   height: 100%;
+  overflow: hidden;
+}
+
+#articles li:hover div {
+  overflow: auto;
 }
 
 #articles h2 {
@@ -35,10 +40,14 @@
   border: 1px solid #14181c;
 }
 
-.article_odd .article_img {
+.article:nth-child(odd) img {
   margin-right: 1vw;
 }
 
-.article_even .article_img {
+.article:nth-child(even) img {
   margin-left: 1vw;
+}
+
+.article_intro {
+
 }

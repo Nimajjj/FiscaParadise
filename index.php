@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="src/css/main.css">
   <link rel="stylesheet" type="text/css" href="src/css/index.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="src/js/index.js"></script>
+
 
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <title>FiscaParadise - Article</title>
@@ -32,39 +34,68 @@
 	</div>
 
   <div id="main">
-
     <ul id="articles">
-			<h2>Articles récents:</h2>
-    	<li class="article_odd">
+			<?php
+				include 'src/php/init.php'
+
+				$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
+				$result = mysqli_query($sqlConnection, $request);
+
+				while ( $article = mysqli_fetch_array($resultat) ) {
+
+				}
+
+				mysqli_close($sqlConnection);
+			 ?>
+    	<li class="article">
 				<img src="img/article/gold.jpeg" alt="" class="article_img">
 				<div class="article_content">
 					<h3 class="article_title">Titre article odd</h3>
 					<p class="article_intro">INTRO:
 Mais ou pouvez-vous bien cacher tout votre or ?
 Ceci est une introduction, je ne sais pas trop quoi ecrire mais bon voila faut bien faire quelque chose... Bla bla bl<span class="important">fugiat nulla pariatur</span>a bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla.<br>
-Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
+Bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
 				</div>
 			</li>
 
-			<li class="article_even">
+			<li class="article">
 				<div class="article_content">
 					<h3 class="article_title">Titre article even</h3>
 					<p class="article_intro">INTRO:
 Mais ou pouvez-vous bien cacher tout votre or ?
-Ceci est une introduction, je ne sais pas trop quoi ecrire mais bon voila faut bien faire quelque chose... Bla bla bl<span class="important">fugiat nulla pariatur</span>a bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla.<br>
-Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
+Ceci est une introduction, je ne sai bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
 				</div>
 				<img src="img/article/plage.jpg" alt="" class="article_img">
 			</li>
 
-			<li class="article_odd">
+			<li class="article">
 				<img src="img/article/gold.jpeg" alt="" class="article_img">
 				<div class="article_content">
 					<h3 class="article_title">Titre article odd</h3>
 					<p class="article_intro">INTRO:
 Mais ou pouvez-vous bien cacher tout votre or ?
-Ceci est une introduction, je ne sais pas trop quoi ecrire mais bon voila faut bien faire quelque chose... Bla bla bl<span class="important">fugiat nulla pariatur</span>a bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla.<br>
+Ceci est ut bien faire quelque chose... Bla bla bl<span class="important">fugiat nulla pariatur</span>a bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla.<br>
 Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
+				</div>
+			</li>
+
+			<li class="article">
+				<div class="article_content">
+					<h3 class="article_title">Titre article even</h3>
+					<p class="article_intro">INTRO:
+Mais ou pouvez-vous bien cacher tout votre or ?
+Ceci est une introduction, je ne sai bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
+				</div>
+				<img src="img/article/plage.jpg" alt="" class="article_img">
+			</li>
+
+			<li class="article">
+				<img src="img/article/plage.jpg" alt="" class="article_img">
+				<div class="article_content">
+					<h3 class="article_title">Titre article even</h3>
+					<p class="article_intro">INTRO:
+Mais ou pouvez-vous bien cacher tout votre or ?
+Ceci est une introduction, je ne sai bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
 				</div>
 			</li>
 
@@ -108,8 +139,6 @@ Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bl
               function submitEmail($email)
               {
                 include 'src/php/init.php';
-
-                $mail = (string) $email;
 
                 $request = "INSERT INTO `emails_table` (`email`) VALUES ('$email')";
                 $result = mysqli_query($sqlConnection, $request);
