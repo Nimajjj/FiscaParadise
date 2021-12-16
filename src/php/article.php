@@ -34,10 +34,12 @@
 	<?php
 		include 'init.php';
 
-		$request = "SELECT * FROM `articles_table` where `ID` = 1";
+		$id = $_GET['Article'];
+
+		$request = "SELECT * FROM `articles_table` where `ID` = $id";
 		$result = mysqli_query($sqlConnection, $request);
 
-		if(!$result)  { echo "<br>Echec de l insertion"; }
+		if(!$result)  { echo "<br>Echec de l'affichage"; }
 		else {
 			$value = mysqli_fetch_array($result);
 			echo '<div id="main">';

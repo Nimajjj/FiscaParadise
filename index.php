@@ -15,7 +15,7 @@
 
 
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-  <title>FiscaParadise - Article</title>
+  <title>FiscaParadise</title>
 </head>
 
 <body>
@@ -35,69 +35,31 @@
 
   <div id="main">
     <ul id="articles">
+
 			<?php
-				include 'src/php/init.php'
+
+				include 'src/php/init.php';
 
 				$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
 				$result = mysqli_query($sqlConnection, $request);
 
-				while ( $article = mysqli_fetch_array($resultat) ) {
-
+				while ( $article = mysqli_fetch_array($result) ) {
+					echo '<li class="article" onclick="location.href=`src/php/article.php?Article='.$article['ID'].'`">';
+						if ($article['ID'] % 2 != 0) {
+							echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
+						}
+						echo '<div class="article_content">';
+							echo '<h3 class="article_title">'.$article['Title'].'</h3>';
+							echo '<p class="article_intro">'.$article['Intro'].'</p>';
+						echo '</div>';
+						if ($article['ID'] % 2 == 0) {
+							echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
+						}
+					echo '</li>';
 				}
 
 				mysqli_close($sqlConnection);
 			 ?>
-    	<li class="article">
-				<img src="img/article/gold.jpeg" alt="" class="article_img">
-				<div class="article_content">
-					<h3 class="article_title">Titre article odd</h3>
-					<p class="article_intro">INTRO:
-Mais ou pouvez-vous bien cacher tout votre or ?
-Ceci est une introduction, je ne sais pas trop quoi ecrire mais bon voila faut bien faire quelque chose... Bla bla bl<span class="important">fugiat nulla pariatur</span>a bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla.<br>
-Bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
-				</div>
-			</li>
-
-			<li class="article">
-				<div class="article_content">
-					<h3 class="article_title">Titre article even</h3>
-					<p class="article_intro">INTRO:
-Mais ou pouvez-vous bien cacher tout votre or ?
-Ceci est une introduction, je ne sai bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
-				</div>
-				<img src="img/article/plage.jpg" alt="" class="article_img">
-			</li>
-
-			<li class="article">
-				<img src="img/article/gold.jpeg" alt="" class="article_img">
-				<div class="article_content">
-					<h3 class="article_title">Titre article odd</h3>
-					<p class="article_intro">INTRO:
-Mais ou pouvez-vous bien cacher tout votre or ?
-Ceci est ut bien faire quelque chose... Bla bla bl<span class="important">fugiat nulla pariatur</span>a bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla.<br>
-Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
-				</div>
-			</li>
-
-			<li class="article">
-				<div class="article_content">
-					<h3 class="article_title">Titre article even</h3>
-					<p class="article_intro">INTRO:
-Mais ou pouvez-vous bien cacher tout votre or ?
-Ceci est une introduction, je ne sai bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
-				</div>
-				<img src="img/article/plage.jpg" alt="" class="article_img">
-			</li>
-
-			<li class="article">
-				<img src="img/article/plage.jpg" alt="" class="article_img">
-				<div class="article_content">
-					<h3 class="article_title">Titre article even</h3>
-					<p class="article_intro">INTRO:
-Mais ou pouvez-vous bien cacher tout votre or ?
-Ceci est une introduction, je ne sai bla bla bla. Bla bla bla bla bla bla bla. Bla bla bla bla bla bla bla. J'espere que ca rendra bien.</p>
-				</div>
-			</li>
 
     </ul>
 
