@@ -23,50 +23,73 @@
 	<div id="nav">
 		<ul id="left_nav">
   		<li><img id="logo" src="img/gold-ingots.png" alt="logo"></li>
-  		<li><h1 id="main_title">FiscaParadise</h1></li>
+  		<li>
+				<ul>
+					<li><h1 id="main_title">FiscaParadise</h1></li>
+					<li><h4 id="slogan">La moula = <3</h4></li>
+				</ul>
+
+			</li>
 		</ul>
 		<ul id="right_nav">
-  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p id="home_bt">HOME</p></div></li>
-  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net/src/php/article.php'"><p>Articles</p></div></li>
-  		<li><div class="nav_bt"><p>Guides</p></div></li>
-  		<li><div class="nav_bt"><p>Contact</p></div></li>
+  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p id="home_bt">HOME</p> <div class="indicator"></div> </div></li>
+  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net/src/php/article.php'"><p>Articles</p><div class="indicator"></div></div></li>
+
+			<li><div class="nav_bt"><p>Revues</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt"><p>Interviews</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt"><p>Classements</p><div class="indicator"></div></div></li>
+
+  		<li><div class="nav_bt"><p>Contact</p><div class="indicator"></div></div></li>
 		</ul>
 	</div>
 
   <div id="main">
-    <ul id="articles">
 
-			<?php
-				include 'src/php/init.php';
+		<div id="main_main">
+			<div id="hot_articles">
+				<ul>
+					<li class="hot_arrow"> <p>&lt;</p>  </li>
+					<li id="hot_mid_zone"> <p>Titre de l'article</p> </li>
+					<li class="hot_arrow"> <p>&gt;</p> </li>
+				</ul>
+			</div>
 
-				$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
-				$result = mysqli_query($sqlConnection, $request);
+	    <ul id="articles">
 
-				while ( $article = mysqli_fetch_array($result) ) {
-					echo '<li class="article" onclick="location.href=`src/php/article.php?Article='.$article['ID'].'`">';
-						if ($article['ID'] % 2 != 0) {
-							echo '<div>';
-								echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img img_left">';
-								echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
+				<?php
+					include 'src/php/init.php';
+
+					$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
+					$result = mysqli_query($sqlConnection, $request);
+
+					while ( $article = mysqli_fetch_array($result) ) {
+						echo '<li class="article" onclick="location.href=`src/php/article.php?Article='.$article['ID'].'`">';
+							if ($article['ID'] % 2 != 0) {
+								echo '<div>';
+									echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img img_left">';
+									echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
+								echo '</div>';
+							}
+							echo '<div class="article_content">';
+								echo '<h3 class="article_title">'.$article['Title'].'</h3>';
+								echo '<p class="article_intro">'.$article['Intro'].'</p>';
 							echo '</div>';
-						}
-						echo '<div class="article_content">';
-							echo '<h3 class="article_title">'.$article['Title'].'</h3>';
-							echo '<p class="article_intro">'.$article['Intro'].'</p>';
-						echo '</div>';
-						if ($article['ID'] % 2 == 0) {
-							echo '<div>';
-								echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img img_right">';
-								echo '<p style="margin-left: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
-							echo '</div>';
-						}
-					echo '</li>';
-				}
+							if ($article['ID'] % 2 == 0) {
+								echo '<div>';
+									echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img img_right">';
+									echo '<p style="margin-left: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
+								echo '</div>';
+							}
+						echo '</li>';
+					}
 
-				mysqli_close($sqlConnection);
-			 ?>
+					mysqli_close($sqlConnection);
+				 ?>
 
-    </ul>
+	    </ul>
+		</div>
+
+
 
     <div id="right_bar"></div>
   </div>
