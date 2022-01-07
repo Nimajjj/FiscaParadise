@@ -33,12 +33,11 @@
 		</ul>
 		<ul id="right_nav">
   		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p id="home_bt">HOME</p> <div class="indicator"></div> </div></li>
-  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net/src/php/article.php'"><p>Articles</p><div class="indicator"></div></div></li>
 
+			<li><div class="nav_bt"><p>Articles</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt"><p>Revues</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt"><p>Interviews</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt"><p>Classements</p><div class="indicator"></div></div></li>
-
   		<li><div class="nav_bt"><p>Contact</p><div class="indicator"></div></div></li>
 		</ul>
 	</div>
@@ -64,22 +63,14 @@
 
 					while ( $article = mysqli_fetch_array($result) ) {
 						echo '<li class="article" onclick="location.href=`src/php/article.php?Article='.$article['ID'].'`">';
-							if ($article['ID'] % 2 != 0) {
-								echo '<div>';
-									echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img img_left">';
-									echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
-								echo '</div>';
-							}
+							echo '<div>';
+								echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
+								echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
+							echo '</div>';
 							echo '<div class="article_content">';
 								echo '<h3 class="article_title">'.$article['Title'].'</h3>';
 								echo '<p class="article_intro">'.$article['Intro'].'</p>';
 							echo '</div>';
-							if ($article['ID'] % 2 == 0) {
-								echo '<div>';
-									echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img img_right">';
-									echo '<p style="margin-left: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
-								echo '</div>';
-							}
 						echo '</li>';
 					}
 

@@ -43,13 +43,10 @@
   border: 1px solid #14181c;
 }
 
-.img_left {
+.article img {
   margin-right: 1vw;
 }
 
-.img_right {
-  margin-left: 1vw;
-}
 
 #hot_articles {
   width: 100%;
@@ -71,28 +68,27 @@
 }
 
 .hot_arrow {
-  opacity: 0;
   width: 10%;
-  background-color: rgba(20, 24, 28, 0);
+  background-color: rgba(20, 24, 28, 0.1);
   transition: 0.35s ease;
   font-size: 128px;
   display: table;
 }
 
 .hot_arrow:hover {
-  opacity: 100;
   background-color: rgba(20, 24, 28, 0.6);
+}
+
+.hot_arrow p {
+  color: rgba(225, 226, 226, 0.1);
+  text-align:center;
+  vertical-align: middle;
+  display: table-cell;
+  transition: 0.35s ease;
 }
 
 .hot_arrow:hover p {
   color: rgba(225, 226, 226, 0.8);
-}
-
-.hot_arrow p {
-  color: rgba(225, 226, 226, 0);
-  text-align:center;
-  vertical-align: middle;
-  display: table-cell;
 }
 
 #hot_mid_zone {
