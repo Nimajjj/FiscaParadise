@@ -1,7 +1,7 @@
 <?php
   $host = "mysql-fiscaparadise.alwaysdata.net";
   $user = "252196";
-	$password = "GnTipNXYa4LvEcT";
+	$password = "FiscaParadise6!";
 	$dbName = "fiscaparadise_main_db";
 	$table = "emails_table";
 

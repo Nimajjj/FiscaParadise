@@ -8,13 +8,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" type="text/css" href="src/css/main.css">
-  <link rel="stylesheet" type="text/css" href="src/css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-	<script type="text/javascript" src="src/js/index.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
 
 
-  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
   <title>FiscaParadise</title>
 </head>
 
@@ -22,7 +22,7 @@
 
 	<div id="nav">
 		<ul id="left_nav">
-  		<li><img id="logo" src="img/gold-ingots.png" alt="logo"></li>
+  		<li><img id="logo" src="../../img/gold-ingots.png" alt="logo"></li>
   		<li>
 				<ul>
 					<li><h1 id="main_title">FiscaParadise</h1></li>
@@ -45,26 +45,31 @@
   <div id="main">
 
 		<div id="main_main">
-			<div id="hot_articles">
-				<ul>
-					<li class="hot_arrow"> <p>&lt;</p>  </li>
-					<li id="hot_mid_zone"> <p>Titre de l'article</p> </li>
-					<li class="hot_arrow"> <p>&gt;</p> </li>
-				</ul>
-			</div>
 
 	    <ul id="articles">
 
 				<?php
-					include 'src/php/init.php';
+					include './init.php';
+
+					$categorie = $_GET['Categorie'];
 
 					$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
 					$result = mysqli_query($sqlConnection, $request);
 
+					if ($categorie != "ALL") {
+						echo '<h2 style="text-decoration: underline; text-decoration-color: #fb8122;">'.$categorie.'s:</h2><br/>';
+					} else {
+						echo '<h2 style="text-decoration: underline; text-decoration-color: #fb8122;">Tous les articles:</h2><br/>';
+					}
+
+
 					while ( $article = mysqli_fetch_array($result) ) {
-						echo '<li class="article" onclick="location.href=`src/php/article.php?Article='.$article['ID'].'`">';
+						if ($article["Categorie"] != $categorie && $categorie != "ALL") {
+							continue;
+						}
+						echo '<li class="article" onclick="location.href=`./article.php?Article='.$article['ID'].'`">';
 							echo '<div>';
-								echo '<img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
+								echo '<img src="../../img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
 								echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
 							echo '</div>';
 							echo '<div class="article_content">';
@@ -76,11 +81,6 @@
 
 					mysqli_close($sqlConnection);
 				 ?>
-
-				 <?php
-				 $maVariable = "Ceci est une variable";
-				 echo "<h1>".$maVariable."</h1>";
-				  ?>
 
 	    </ul>
 		</div>
@@ -113,7 +113,7 @@
         <div id="f_right">
           <ul>
             <li> <a target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FFiscaParadise.com%2F&amp;src=sdkpreparse', 'facebook','width=600,height=400')"> <img class="social_icon" src="../img/facebook.png" alt="facebook"> </a> </li>
-            <li> <a target="_blank" href="./src/php/mailDB.php"> <img class="social_icon" src="img/twitter.png" alt="twitter"> </a> </li>
+            <li> <a target="_blank" href="./mailDB.php"> <img class="social_icon" src="img/twitter.png" alt="twitter"> </a> </li>
             <li> <a target="_blank" href="#"> <img class="social_icon" src="img/google-plus.png" alt="google +"> </a> </li>
           </ul>
           <p>S'enregistrer à la newletter:</p>

@@ -1,5 +1,3 @@
-
-
 #article_ul > li {
   display: flex;
   flex-direction: column;
@@ -28,7 +26,7 @@
 
 #article_footer {
   display: flex;
-  margin-top:2vh;
+  margin-top: 2vh;
 }
 
 #article_footer p {

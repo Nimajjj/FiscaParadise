@@ -25,9 +25,11 @@
 		</ul>
 		<ul id="right_nav">
   		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p id="home_bt">HOME</p></div></li>
-  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net/src/php/article.php'"><p>Articles</p></div></li>
-  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net/src/php/mailDB.php'"><p>MailsDB</p></div></li>
-  		<li><div class="nav_bt"><p>Contact</p></div></li>
+			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=ALL`"><p>Articles</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Revue`"><p>Revues</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Interview`"><p>Interviews</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Classement`"><p>Classements</p><div class="indicator"></div></div></li>
+  		<li><div class="nav_bt"><p>Contact</p><div class="indicator"></div></div></li>
 		</ul>
 	</div>
 
@@ -46,7 +48,7 @@
 				echo '<div id="article">';
 					echo '<ul id="article_ul">';
 						echo '<li><h2 id="article_title">'.$value['Title'].'</h2></li>';
-						echo '<li><img id="article_img" src="../../img/article/'.$value['ImgFile'].'" alt="img" style="height:25em"></li>';
+						echo '<li><img id="article_img" src="../../img/article/'.$value['ImgFile'].'" alt="img" style="height:46em"></li>';
 						echo '<li>';
 							echo '<p id="intro" style="margin-top:1.5vh;">'.$value['Intro'].'</p>';
 							echo '<p id="body" style="margin-top:1.5vh;">'.$value['Body'].'</p>';
