@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
-  <title>FiscaParadise - </title>
+  <title>FiscaParadise</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 		</ul>
 		<ul id="right_nav">
   		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p>HOME</p></div></li>
-			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=ALL`"><p>Articles</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=ALL`"><p style="color: #fb8122;">Articles</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Revue`"><p>Revues</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Interview`"><p>Interviews</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Classement`"><p>Classements</p><div class="indicator"></div></div></li>
@@ -62,10 +62,39 @@
 	 ?>
 
 	 <div id="right_bar">
-		 <form action="https://fiscaparadise.alwaysdata.net/src/php/recherche.php" method="get" id="searchForm">
-			 <input type="text" name="search" id="search" placeholder="Recherche"/>
-			 <input type="submit" name="searchSubmit" id="searchSubmit" value="Rechercher"/>
-		 </form>
+
+		 <div class="r_bar_block">
+			 <form action="https://fiscaparadise.alwaysdata.net/src/php/recherche.php" method="get" id="searchForm">
+				 <input type="text" name="search" id="search" placeholder="Recherche"/>
+				 <input type="submit" name="searchSubmit" id="searchSubmit" value="Rechercher"/>
+			 </form>
+		 </div>
+		 <div class="r_bar_block" id="r_bar_tendances">
+			 <ul>
+				 <li><p>Articles tendances:</p></li>
+				 <?php
+				 include './init.php';
+
+				 $request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
+				 $result = mysqli_query($sqlConnection, $request);
+
+				 $count = 0;
+
+				 while ( $count < 4) {
+					 while ( $article = mysqli_fetch_array($result) ) {
+						 echo "<li><a href=https://fiscaparadise.alwaysdata.net/src/php/article.php?Article=".$article['ID'].">".$article['Title']."</a></li>";
+						 $count++;
+						 if ($count < 4) {
+							 break;
+						 }
+					 }
+				 }
+
+				 mysqli_close($sqlConnection);
+					?>
+			 </ul>
+		 </div>
+
 	 </div>
 
 	</div>

@@ -17,7 +17,8 @@ body {
 	padding: 3vh 2vw 3vh 2vw;
 	display: flex;
 	justify-content: space-between;
-
+	position: fixed;
+	width: 100%;
 }
 
 #nav li {
@@ -92,24 +93,53 @@ h1:hover {
 }
 
 #main {
-  margin: 5vh 6vw 5vh 6vw;
+  margin: 20vh 6vw 5vh 6vw;
   display: flex;
 
   color: #e1e2e2;
 }
 
 #main_main {
-	width: 85%;
+	width: 75%;
 	display: flex;
 	flex-direction: column;
 }
 
 #right_bar {
-	min-height: 100vh;
+	position: fixed;
   width: 25%;
-  background-color: #14181c;
-  margin-left: 3vw;
-  padding: 1em;
+	display: flex;
+	flex-direction: column;
+	top: 20vh;
+	left: 70%;
+}
+
+#right_bar > div {
+	width: 100%;
+	background-color: #14181c;
+	margin: 0 0 2vh 3vw;
+	padding: 1em;
+}
+
+#r_bar_tendances {
+	display: flex;
+	flex-direction: column;
+}
+
+#r_bar_tendances p {
+	font-size: 18px;
+	font-weight: bold;
+	color: #fb8122;
+}
+
+#r_bar_tendances ul {
+	list-style: none;
+}
+
+#r_bar_tendances a {
+	color: #e1e2e2;
+	text-decoration: underline;
+	text-decoration-color: #e1e2e2;
 }
 
 #footer {

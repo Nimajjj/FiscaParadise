@@ -51,10 +51,22 @@
 		</div>
 
 		<div id="right_bar">
-			<form action="" method="post" id="searchForm">
-				<input type="text" name="search" id="search"/>
-				<input type="submit" name="searchSubmit" id="searchSubmit" value="Rechercher"/>
-			</form>
+
+			<div class="r_bar_block">
+				<form action="https://fiscaparadise.alwaysdata.net/src/php/recherche.php" method="get" id="searchForm">
+					<input type="text" name="search" id="search" placeholder="Recherche"/>
+					<input type="submit" name="searchSubmit" id="searchSubmit" value="Rechercher"/>
+				</form>
+			</div>
+			<div class="r_bar_block" id="r_bar_tendances">
+				<ul>
+					<li><p>Articles tendances:</p></li>
+					<li> <a href="#">Dernier article</a> </li>
+					<li> <a href="#">Comment cacher tout son or ?</a> </li>
+					<li> <a href="#">J'aime l'argent</a> </li>
+				</ul>
+			</div>
+
 		</div>
 
   </div>
