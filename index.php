@@ -26,7 +26,7 @@
   		<li>
 				<ul>
 					<li><h1 id="main_title">FiscaParadise</h1></li>
-					<li><h4 id="slogan">La moula = <3</h4></li>
+					<li><h4 id="slogan">La solution, le paradis ? C'est FiscaParadise® !</h4></li>
 				</ul>
 
 			</li>
@@ -45,6 +45,7 @@
   <div id="main">
 
 		<div id="main_main">
+			<h2 style="text-decoration: underline; text-decoration-color: #fb8122; font-size: 32px; margin-bottom: 3vh;">Nos derniers articles:</h2>
 			<div id="hot_articles">
 				<ul>
 					<li class="hot_arrow"> <p>&lt;</p>  </li>

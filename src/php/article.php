@@ -21,7 +21,12 @@
 	<div id="nav">
 		<ul id="left_nav">
   		<li><img id="logo" src="../../img/gold-ingots.png" alt="logo"></li>
-  		<li><h1 id="main_title">FiscaParadise</h1></li>
+			<li>
+				<ul>
+					<li><h1 id="main_title">FiscaParadise</h1></li>
+					<li><h4 id="slogan">La solution, le paradis ? C'est FiscaParadise® !</h4></li>
+				</ul>
+			</li>
 		</ul>
 		<ul id="right_nav">
   		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p>HOME</p></div></li>
@@ -47,7 +52,7 @@
 			echo '<div id="main">';
 				echo '<div id="article">';
 					echo '<ul id="article_ul">';
-						echo '<li><h2 id="article_title">'.$value['Title'].'</h2></li>';
+						echo '<li><h2 id="article_title" style="text-decoration: underline; text-decoration-color: #fb8122;">'.$value['Title'].'</h2></li>';
 						echo '<li><img id="article_img" src="../../img/article/'.$value['ImgFile'].'" alt="img" style="height:46em"></li>';
 						echo '<li>';
 							echo '<p id="intro" style="margin-top:1.5vh;">'.$value['Intro'].'</p>';

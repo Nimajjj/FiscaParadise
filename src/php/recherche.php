@@ -26,9 +26,8 @@
   		<li>
 				<ul>
 					<li><h1 id="main_title">FiscaParadise</h1></li>
-					<li><h4 id="slogan">La moula = <3</h4></li>
+					<li><h4 id="slogan">La solution, le paradis ? C'est FiscaParadise® !</h4></li>
 				</ul>
-
 			</li>
 		</ul>
 		<ul id="right_nav">
