@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="src/css/main.css">
   <link rel="stylesheet" type="text/css" href="src/css/index.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-	<script type="text/javascript" src="src/js/index.js"></script>
+	<script type="text/javascript" src="src/js/index.js" defer></script>
 
 
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
@@ -32,13 +32,13 @@
 			</li>
 		</ul>
 		<ul id="right_nav">
-  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p id="home_bt">HOME</p> <div class="indicator"></div> </div></li>
-
+  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p>HOME</p> <div class="indicator"></div> </div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=ALL`"><p>Articles</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Revue`"><p>Revues</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Interview`"><p>Interviews</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Classement`"><p>Classements</p><div class="indicator"></div></div></li>
-  		<li><div class="nav_bt"><p>Contact</p><div class="indicator"></div></div></li>
+
+			<li><div class="nav_bt"><p>Contact</p><div class="indicator"></div></div></li>
 		</ul>
 	</div>
 
@@ -77,17 +77,16 @@
 					mysqli_close($sqlConnection);
 				 ?>
 
-				 <?php
-				 $maVariable = "Ceci est une variable";
-				 echo "<h1>".$maVariable."</h1>";
-				  ?>
-
 	    </ul>
 		</div>
 
+    <div id="right_bar">
+			<form action="https://fiscaparadise.alwaysdata.net/src/php/recherche.php" method="get" id="searchForm">
+				<input type="text" name="search" id="search" placeholder="Recherche"/>
+				<input type="submit" name="searchSubmit" id="searchSubmit" value="Rechercher"/>
+			</form>
+		</div>
 
-
-    <div id="right_bar"></div>
   </div>
 
   <div id="footer">
@@ -118,7 +117,7 @@
           </ul>
           <p>S'enregistrer à la newletter:</p>
           <form action="" method="post">
-            <input type="email" name="email"/>
+            <input type="email" name="email" placeholder="Entrez votre email"/>
             <input type="submit" name="emailSubmit" id="emailSubmit"/>
 
             <?php

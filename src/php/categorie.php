@@ -15,7 +15,16 @@
 
 
   <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
-  <title>FiscaParadise</title>
+
+	<?php
+		$categorie = $_GET['Categorie'];
+		if ($categorie == 'ALL') {
+			echo '<title>FiscaParadise - Tous Les Articles</title>' ;
+		} else {
+			echo '<title>FiscaParadise - '.$categorie.'s</title>' ;
+		}
+
+	 ?>
 </head>
 
 <body>
@@ -32,8 +41,7 @@
 			</li>
 		</ul>
 		<ul id="right_nav">
-  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p id="home_bt">HOME</p> <div class="indicator"></div> </div></li>
-
+  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p>HOME</p> <div class="indicator"></div> </div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=ALL`"><p>Articles</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Revue`"><p>Revues</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Interview`"><p>Interviews</p><div class="indicator"></div></div></li>
@@ -87,7 +95,13 @@
 
 
 
-    <div id="right_bar"></div>
+		<div id="right_bar">
+			<form action="https://fiscaparadise.alwaysdata.net/src/php/recherche.php" method="get" id="searchForm">
+				<input type="text" name="search" id="search" placeholder="Recherche"/>
+				<input type="submit" name="searchSubmit" id="searchSubmit" value="Rechercher"/>
+			</form>
+		</div>
+
   </div>
 
   <div id="footer">
@@ -111,10 +125,10 @@
 
       <li>
         <div id="f_right">
-          <ul>
-            <li> <a target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FFiscaParadise.com%2F&amp;src=sdkpreparse', 'facebook','width=600,height=400')"> <img class="social_icon" src="../img/facebook.png" alt="facebook"> </a> </li>
-            <li> <a target="_blank" href="./mailDB.php"> <img class="social_icon" src="img/twitter.png" alt="twitter"> </a> </li>
-            <li> <a target="_blank" href="#"> <img class="social_icon" src="img/google-plus.png" alt="google +"> </a> </li>
+					<ul>
+            <li> <a target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FFiscaParadise.com%2F&amp;src=sdkpreparse', 'facebook','width=600,height=400')"> <img class="social_icon" src="../../img/facebook.png" alt="facebook"> </a> </li>
+            <li> <a target="_blank" href="./mailDB.php"> <img class="social_icon" src="../../img/twitter.png" alt="twitter"> </a> </li>
+            <li> <a target="_blank" href="#"> <img class="social_icon" src="../../img/google-plus.png" alt="google +"> </a> </li>
           </ul>
           <p>S'enregistrer à la newletter:</p>
           <form action="" method="post">

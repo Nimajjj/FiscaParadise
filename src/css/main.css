@@ -41,13 +41,8 @@ body {
 	margin-top: 4vh;
 }
 
-#home_bt {
+#current_bt {
 	color: #fb8122;
-	transition: 0.75s ease;
-}
-
-#home_bt:hover{
-	color: #d96d19;
 }
 
 #logo {
@@ -114,7 +109,7 @@ h1:hover {
   width: 25%;
   background-color: #14181c;
   margin-left: 3vw;
-  padding: 3vw;
+  padding: 1em;
 }
 
 #footer {
@@ -159,4 +154,17 @@ h1:hover {
 
 a:hover {
 	cursor: pointer;
+}
+
+#searchForm {
+	display: flex;
+}
+
+#searchForm > input {
+	font-size: 16px;
+}
+
+#search {
+	margin-right: 1%;
+	width: 99%;
 }

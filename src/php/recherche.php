@@ -9,11 +9,13 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
-  <link rel="stylesheet" type="text/css" href="../css/article.css" defer>
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="../js/index.js"></script>
+
 
   <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
-  <title>FiscaParadise - </title>
+  <title>FiscaParadise - Recherche</title>
 </head>
 
 <body>
@@ -21,10 +23,17 @@
 	<div id="nav">
 		<ul id="left_nav">
   		<li><img id="logo" src="../../img/gold-ingots.png" alt="logo"></li>
-  		<li><h1 id="main_title">FiscaParadise</h1></li>
+  		<li>
+				<ul>
+					<li><h1 id="main_title">FiscaParadise</h1></li>
+					<li><h4 id="slogan">La moula = <3</h4></li>
+				</ul>
+
+			</li>
 		</ul>
 		<ul id="right_nav">
-  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p>HOME</p></div></li>
+  		<li><div class="nav_bt" onclick="location.href='http://fiscaparadise.alwaysdata.net'"><p>HOME</p> <div class="indicator"></div> </div></li>
+
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=ALL`"><p>Articles</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Revue`"><p>Revues</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Interview`"><p>Interviews</p><div class="indicator"></div></div></li>
@@ -33,42 +42,55 @@
 		</ul>
 	</div>
 
-	<?php
-		include 'init.php';
+  <div id="main">
 
-		$id = $_GET['Article'];
+		<div id="main_main">
 
-		$request = "SELECT * FROM `articles_table` where `ID` = $id";
-		$result = mysqli_query($sqlConnection, $request);
+	    <ul id="articles">
 
-		if(!$result)  { echo "<br>Echec de l'affichage"; }
-		else {
-			$value = mysqli_fetch_array($result);
-			echo '<div id="main">';
-				echo '<div id="article">';
-					echo '<ul id="article_ul">';
-						echo '<li><h2 id="article_title">'.$value['Title'].'</h2></li>';
-						echo '<li><img id="article_img" src="../../img/article/'.$value['ImgFile'].'" alt="img" style="height:46em"></li>';
-						echo '<li>';
-							echo '<p id="intro" style="margin-top:1.5vh;">'.$value['Intro'].'</p>';
-							echo '<p id="body" style="margin-top:1.5vh;">'.$value['Body'].'</p>';
-							echo '<p id="conclusion" style="margin-top:1.5vh;">'.$value['Conclusion'].'</p>';
-							echo '<div id="article_footer"><p id="date">Article écrit le '.$value['Date'].'</p><p id="author" style="margin-left: 0.5vw;"> par '.$value['Author'].'</p></div>';
+				<?php
+					include './init.php';
+
+					$search = $_GET['search'];
+
+					$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
+					$result = mysqli_query($sqlConnection, $request);
+
+					echo '<h2 style="text-decoration: underline; text-decoration-color: #fb8122;">Recherche: '.$search.'</h2><br/>';
+
+
+					while ( $article = mysqli_fetch_array($result) ) {
+						if ( (str_contains($article["Author"], $search) == false) && (str_contains($article["Title"], $search) == false) && (str_contains($article["Intro"], $search) == false) && (str_contains($article["Body"], $search) == false) && (str_contains( $article["Conclusion"], $search) == false) ) {
+							continue;
+						}
+						echo '<li class="article" onclick="location.href=`./article.php?Article='.$article['ID'].'`">';
+							echo '<div>';
+								echo '<img src="../../img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
+								echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
+							echo '</div>';
+							echo '<div class="article_content">';
+								echo '<h3 class="article_title">'.$article['Title'].'</h3>';
+								echo '<p class="article_intro">'.$article['Intro'].'</p>';
+							echo '</div>';
 						echo '</li>';
-					echo '</ul>';
-			echo '</div>';
-		}
-		mysqli_close($sqlConnection);
-	 ?>
+					}
 
-	 <div id="right_bar">
-		 <form action="https://fiscaparadise.alwaysdata.net/src/php/recherche.php" method="get" id="searchForm">
-			 <input type="text" name="search" id="search" placeholder="Recherche"/>
-			 <input type="submit" name="searchSubmit" id="searchSubmit" value="Rechercher"/>
-		 </form>
-	 </div>
+					mysqli_close($sqlConnection);
+				 ?>
 
-	</div>
+	    </ul>
+		</div>
+
+
+
+		<div id="right_bar">
+			<form action="https://fiscaparadise.alwaysdata.net/src/php/recherche.php" method="get" id="searchForm">
+				<input type="text" name="search" id="search" placeholder="Recherche"/>
+				<input type="submit" name="searchSubmit" id="searchSubmit" value="Rechercher"/>
+			</form>
+		</div>
+
+  </div>
 
   <div id="footer">
     <ul>
@@ -91,7 +113,7 @@
 
       <li>
         <div id="f_right">
-					<ul>
+          <ul>
             <li> <a target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2FFiscaParadise.com%2F&amp;src=sdkpreparse', 'facebook','width=600,height=400')"> <img class="social_icon" src="../../img/facebook.png" alt="facebook"> </a> </li>
             <li> <a target="_blank" href="./mailDB.php"> <img class="social_icon" src="../../img/twitter.png" alt="twitter"> </a> </li>
             <li> <a target="_blank" href="#"> <img class="social_icon" src="../../img/google-plus.png" alt="google +"> </a> </li>
@@ -105,8 +127,6 @@
               function submitEmail($email)
               {
                 include 'src/php/init.php';
-
-                $mail = (string) $email;
 
                 $request = "INSERT INTO `emails_table` (`email`) VALUES ('$email')";
                 $result = mysqli_query($sqlConnection, $request);
