@@ -76,8 +76,8 @@
 							continue;
 						}
 						echo '<li class="article" onclick="location.href=`./article.php?Article='.$article['ID'].'`">';
-							echo '<div>';
-								echo '<img src="../../img/article/'.$article['ImgFile'].'" alt="" class="article_img">';
+							echo '<div class="article_left_part">';
+								echo '<div class="article_img_container"><img src="../../img/article/'.$article['ImgFile'].'" alt="" class="article_img"></div>';
 								echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
 							echo '</div>';
 							echo '<div class="article_content">';

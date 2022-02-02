@@ -19,6 +19,7 @@ body {
 	justify-content: space-between;
 	position: fixed;
 	width: 100%;
+	z-index: 10000; /* to fix image passing in front of the nav */
 }
 
 #nav li {
