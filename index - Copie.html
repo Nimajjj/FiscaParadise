@@ -14,7 +14,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="src/js/index.js"></script>
 
-
+	<script type="text/javascript" src="test/test1.js" defer></script>
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <title>FiscaParadise</title>
 </head>
@@ -45,12 +45,28 @@
 	</div>
 
   <div id="main">
-
 		<div id="main_main">
-			<div class="img-hover-zoom">
-				<img src="./img/article/gold.jpeg" alt="This zooms-in really well and smooth">
+			<div id="hot_articles">
+				<ul>
+					<li class="hot_arrow" id="l_arrow"> <p>&lt;</p>  </li>
+					<li id="hot_mid_zone"> <p id="hot_title">Titre de l'article</p> </li>
+					<li class="hot_arrow" id="r_arrow"> <p>&gt;</p> </li>
+				</ul>
+
+				<div class="hot_img 1" id="art_1" >
+					<img src="./img/article/gold.jpeg" alt="image">
+				</div>
+				<holder id="holder1" style="display:none;">titre 1</holder>
+				<div class="hot_img 2" id="art_2">
+					<img src="./img/article/mec.jpg" alt="image">
+				</div>
+				<holder id="holder2" style="display:none;">titre 2</holder>
+				<div class="hot_img 3" id="art_3">
+					<img src="./img/article/plage.jpg" alt="image">
+				</div>
+				<holder id="holder3" style="display:none;">titre 3</holder>
 			</div>
-			<div id="hot_articles"></div>
+			
 	    <ul id="articles"></ul>
 
 		</div>

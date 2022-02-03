@@ -12,9 +12,10 @@
   <link rel="stylesheet" type="text/css" href="src/css/index.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="src/js/index.js" defer></script>
+	<script type="text/javascript" src="src/js/hot_articles.js" defer></script>
 
 
-  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
   <title>FiscaParadise</title>
 </head>
 
@@ -22,7 +23,7 @@
 
 	<div id="nav">
 		<ul id="left_nav">
-  		<li><img id="logo" src="img/gold-ingots.png" alt="logo"></li>
+  		<li> <a href="http://fiscaparadise.alwaysdata.net"><img id="logo" src="/img/gold-ingots.png" alt="logo"></a> </li>
   		<li>
 				<ul>
 					<li><h1 id="main_title">FiscaParadise</h1></li>
@@ -37,21 +38,38 @@
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Revue`"><p>Revues</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Interview`"><p>Interviews</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Classement`"><p>Classements</p><div class="indicator"></div></div></li>
-
-			<li><div class="nav_bt"><p>Contact</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt" onclick="location.href='https://fiscaparadise.alwaysdata.net/src/php/contact.php'"><p>Contact</p><div class="indicator"></div></div></li>
 		</ul>
 	</div>
 
   <div id="main">
 
 		<div id="main_main">
-			<h2 style="text-decoration: underline; text-decoration-color: #fb8122; font-size: 32px; margin-bottom: 3vh;">Nos derniers articles:</h2>
+			<h2 style="text-decoration: underline; text-decoration-color: #fb8122; font-size: 32px; margin-bottom: 3vh;">Nos derniers articles :</h2>
+
 			<div id="hot_articles">
 				<ul>
-					<li class="hot_arrow"> <p>&lt;</p>  </li>
-					<li id="hot_mid_zone"> <p>Titre de l'article</p> </li>
-					<li class="hot_arrow"> <p>&gt;</p> </li>
+					<li class="hot_arrow" id="l_arrow"> <p>&lt;</p>  </li>
+					<li id="hot_mid_zone"> <p id="hot_title"></p> </li>
+					<li class="hot_arrow" id="r_arrow"> <p>&gt;</p> </li>
 				</ul>
+
+				<?php
+					include 'src/php/init.php';
+
+					$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 3";
+					$result = mysqli_query($sqlConnection, $request);
+
+					$count = 1;
+					while ( $article = mysqli_fetch_array($result) ) {
+						echo '<div class="hot_img '.$article['ID'].'" id="art_'.$count.'">';
+						echo '<img src="img/article/'.$article['ImgFile'].'" alt="article image">';
+						echo '</div>';
+						echo '<holder id="holder'.$count.'" style="display:none;">'.$article['Title'].'</holder>';
+
+						$count += 1;
+					}
+				 ?>
 			</div>
 
 	    <ul id="articles">
@@ -61,18 +79,22 @@
 
 					$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
 					$result = mysqli_query($sqlConnection, $request);
+					$count = 0;
 
 					while ( $article = mysqli_fetch_array($result) ) {
-						echo '<li class="article" onclick="location.href=`src/php/article.php?Article='.$article['ID'].'`">';
-							echo '<div class="article_left_part">';
-								echo '<div class="article_img_container"><img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img"></div>';
-								echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
-							echo '</div>';
-							echo '<div class="article_content">';
-								echo '<h3 class="article_title">'.$article['Title'].'</h3>';
-								echo '<p class="article_intro">'.$article['Intro'].'</p>';
-							echo '</div>';
-						echo '</li>';
+						if ($count > 2) {
+							echo '<li class="article" onclick="location.href=`src/php/article.php?Article='.$article['ID'].'`">';
+								echo '<div class="article_left_part">';
+									echo '<div class="article_img_container"><img src="img/article/'.$article['ImgFile'].'" alt="" class="article_img"></div>';
+									echo '<p style="margin-right: 1vw;">'.$article['Date'].' - '.$article['Author'].'</p>';
+								echo '</div>';
+								echo '<div class="article_content">';
+									echo '<h3 class="article_title">'.$article['Title'].'</h3>';
+									echo '<p class="article_intro">'.$article['Intro'].'</p>';
+								echo '</div>';
+							echo '</li>';
+						}
+						$count += 1;
 					}
 
 					mysqli_close($sqlConnection);

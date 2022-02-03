@@ -31,7 +31,7 @@
 
 	<div id="nav">
 		<ul id="left_nav">
-  		<li><img id="logo" src="../../img/gold-ingots.png" alt="logo"></li>
+  		<li> <a href="http://fiscaparadise.alwaysdata.net"><img id="logo" src="../../img/gold-ingots.png" alt="logo"></a> </li>
   		<li>
 				<ul>
 					<li><h1 id="main_title">FiscaParadise</h1></li>
@@ -46,7 +46,7 @@
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Revue`"><p>Revues</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Interview`"><p>Interviews</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Classement`"><p>Classements</p><div class="indicator"></div></div></li>
-  		<li><div class="nav_bt"><p>Contact</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt" onclick="location.href='https://fiscaparadise.alwaysdata.net/src/php/contact.php'"><p>Contact</p><div class="indicator"></div></div></li>
 		</ul>
 	</div>
 
