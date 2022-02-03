@@ -9,7 +9,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
-  <link rel="stylesheet" type="text/css" href="../css/index.css">
+  <link rel="stylesheet" type="text/css" href="../css/contact.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="../js/index.js" defer></script>
 
@@ -37,12 +37,24 @@
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Revue`"><p>Revues</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Interview`"><p>Interviews</p><div class="indicator"></div></div></li>
 			<li><div class="nav_bt" onclick="location.href=`https://fiscaparadise.alwaysdata.net/src/php/categorie.php?Categorie=Classement`"><p>Classements</p><div class="indicator"></div></div></li>
-			<li><div class="nav_bt"><p>Contact</p><div class="indicator"></div></div></li>
+			<li><div class="nav_bt" onclick="location.href='https://fiscaparadise.alwaysdata.net/src/php/contact.php'"><p>Contact</p><div class="indicator"></div></div></li>
 		</ul>
 	</div>
 
   <div id="main">
+		<h2 style="text-decoration: underline; text-decoration-color: #fb8122; font-size: 32px; margin-bottom: 1vh;">Qui sommes nous ?</h2>
+		<p style="margin-bottom: 2vh;">
+			Nous sommes FiscaParadise ! <br>
+			Le seul et unique blog francophone qui vous expliquera comment déplacer votre fiscalité au soleil. <br>
+			Notre équipe de rédaction est constituée uniquement de professionnels de la fiscalité internationale. <br>
+			Notre siège basé à Berne en Suisse nous permet de vous conseiller en toute légalité pour vous apprendre à bien niquer votre pays natal. <br>
+			Vous voulez participer à la prochaine crise économique de votre pays en défiscalisant tout vos revenus ? <br>
+			Alors suivez nos conseil ! La solution, le paradis ? C'est FiscaParadise® !
+		</p>
 
+		<h2 style="text-decoration: underline; text-decoration-color: #fb8122; font-size: 32px; margin-bottom: 1vh;">Nous contacter :</h2>
+		<p>Email : fiscaparadise@gmail.com</p>
+		<p>Telephone : 06.66.66.66.66</p>
 
   </div>
 
