@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>DB of emails registered for newsletter</h1>
+    <h2>Only for test purpose, get out of here...</h2>
     <table>
       <tr style="display: flex; flex-direction: column;">
         <?php

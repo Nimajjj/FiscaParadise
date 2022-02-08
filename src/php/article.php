@@ -53,7 +53,7 @@
 				echo '<div id="article">';
 					echo '<ul id="article_ul">';
 						echo '<li><h2 id="article_title" style="text-decoration: underline; text-decoration-color: #fb8122;">'.$value['Title'].'</h2></li>';
-						echo '<li><img id="article_img" src="../../img/article/'.$value['ImgFile'].'" alt="img" style="height:46em"></li>';
+						echo '<li><img id="article_img" src="../../img/article/'.$value['ImgFile'].'" alt="img" style="height:75vh"></li>';
 						echo '<li>';
 							echo '<p id="intro" style="margin-top:1.5vh;">'.$value['Intro'].'</p>';
 							echo '<p id="body" style="margin-top:1.5vh;">'.$value['Body'].'</p>';
@@ -110,8 +110,8 @@
       <li>
         <ul>
           <li><p class="f_title">FiscaParadise</p></li>
-          <li><a href="#">A propos de FP</a></li>
-          <li><a href="#">Nous contacter</a></li>
+          <li><a href="https://fiscaparadise.alwaysdata.net/src/php/contact.php">A propos de FP</a></li>
+          <li><a href="https://fiscaparadise.alwaysdata.net/src/php/contact.php">Nous contacter</a></li>
         </ul>
       </li>
 

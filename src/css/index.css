@@ -99,19 +99,19 @@
 
 .hot_arrow {
   width: 10%;
-  background-color: rgba(20, 24, 28, 0.1);
+  background-color: rgba(20, 24, 28, 0.4);
   transition: 0.35s ease;
   font-size: 128px;
   display: table;
 }
 
 .hot_arrow:hover {
-  background-color: rgba(20, 24, 28, 0.6);
+  background-color: rgba(20, 24, 28, 0.8);
   cursor: pointer;
 }
 
 .hot_arrow p {
-  color: rgba(225, 226, 226, 0.1);
+  color: rgba(225, 226, 226, 0.8);
   text-align:center;
   vertical-align: middle;
   display: table-cell;

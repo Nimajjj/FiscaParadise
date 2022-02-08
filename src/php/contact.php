@@ -41,7 +41,7 @@
 		</ul>
 	</div>
 
-  <div id="main">
+  <div id="main" style="margin-bottom: 23vh;">
 		<h2 style="text-decoration: underline; text-decoration-color: #fb8122; font-size: 32px; margin-bottom: 1vh;">Qui sommes nous ?</h2>
 		<p style="margin-bottom: 2vh;">
 			Nous sommes FiscaParadise ! <br>
@@ -55,7 +55,6 @@
 		<h2 style="text-decoration: underline; text-decoration-color: #fb8122; font-size: 32px; margin-bottom: 1vh;">Nous contacter :</h2>
 		<p>Email : fiscaparadise@gmail.com</p>
 		<p>Telephone : 06.66.66.66.66</p>
-
   </div>
 
   <div id="footer">
@@ -64,8 +63,8 @@
       <li>
         <ul>
           <li><p class="f_title">FiscaParadise</p></li>
-          <li><a href="#">A propos de FP</a></li>
-          <li><a href="#">Nous contacter</a></li>
+          <li><a href="https://fiscaparadise.alwaysdata.net/src/php/contact.php">A propos de FP</a></li>
+          <li><a href="https://fiscaparadise.alwaysdata.net/src/php/contact.php">Nous contacter</a></li>
         </ul>
       </li>
 

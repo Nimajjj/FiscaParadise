@@ -29,7 +29,6 @@
 					<li><h1 id="main_title">FiscaParadise</h1></li>
 					<li><h4 id="slogan">La solution, le paradis ? C'est FiscaParadise® !</h4></li>
 				</ul>
-
 			</li>
 		</ul>
 		<ul id="right_nav">
@@ -149,8 +148,8 @@
       <li>
         <ul>
           <li><p class="f_title">FiscaParadise</p></li>
-          <li><a href="#">A propos de FP</a></li>
-          <li><a href="#">Nous contacter</a></li>
+          <li><a href="https://fiscaparadise.alwaysdata.net/src/php/contact.php">A propos de FP</a></li>
+          <li><a href="https://fiscaparadise.alwaysdata.net/src/php/contact.php">Nous contacter</a></li>
         </ul>
       </li>
 
