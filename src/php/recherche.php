@@ -51,7 +51,7 @@
 
 					$search = $_GET['search'];
 
-					$request = "SELECT * FROM `articles_table` ORDER BY `ID` DESC LIMIT 10";
+					$request = "SELECT * FROM `articles_table` ORDER BY `ID`";
 					$result = mysqli_query($sqlConnection, $request);
 
 					echo '<h2 style="text-decoration: underline; text-decoration-color: #fb8122;">Recherche: '.$search.'</h2><br/>';

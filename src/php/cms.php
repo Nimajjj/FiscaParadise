@@ -26,6 +26,7 @@
       <textarea name="img" rows="1" cols="10"></textarea><br>
       <input type="submit" name="Submit" value="Submit">
     </form>
+
     <?php
       function submitArticle($a) {
         include 'init.php';
